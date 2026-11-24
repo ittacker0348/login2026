@@ -1,0 +1,12 @@
+{
+  "name": "user-writing-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "회원가입, 로그인, 글 작성을 지원하는 간단한 Express 앱",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

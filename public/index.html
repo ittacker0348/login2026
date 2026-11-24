@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4f0">
+    <title>글쓰기 라운지</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="글쓰기 라운지 홈">
+        <span class="brand-mark">글</span>
+        <span>문장<span class="brand-light">의 온도</span></span>
+      </a>
+      <div id="accountArea" class="account-area"></div>
+    </header>
+
+    <main class="layout">
+      <section class="intro">
+        <p class="eyebrow">YOUR LITTLE WRITING SPACE</p>
+        <h1>오늘의 생각을<br><span>문장으로 남겨보세요.</span></h1>
+        <p class="intro-copy">짧은 메모도 좋아요. 당신의 이야기를 기다리고 있어요.</p>
+        <div class="intro-decoration" aria-hidden="true">
+          <span class="sun"></span>
+          <span class="horizon"></span>
+          <span class="hill hill-back"></span>
+          <span class="hill hill-front"></span>
+          <span class="flower flower-one">✳</span>
+          <span class="flower flower-two">✳</span>
+        </div>
+        <p class="side-note">WRITE AT YOUR OWN PACE</p>
+      </section>
+
+      <section class="content">
+        <section id="composer" class="composer card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">A FRESH PAGE</p>
+              <h2>새 글 작성</h2>
+            </div>
+            <span class="heading-icon" aria-hidden="true">✎</span>
+          </div>
+          <div id="signedOutNotice" class="signed-out-notice">
+            글을 쓰려면 <button class="text-button" data-open-auth="login">로그인</button>해 주세요.
+            아직 계정이 없다면 <button class="text-button" data-open-auth="register">회원가입</button>을 해주세요.
+          </div>
+          <form id="postForm">
+            <label for="postTitle">제목</label>
+            <input id="postTitle" name="title" maxlength="100" placeholder="어떤 이야기를 나눠볼까요?" required>
+            <label for="postContent">내용</label>
+            <textarea id="postContent" name="content" maxlength="10000" rows="5" placeholder="편안하게 적어주세요. 당신의 이야기는 소중하니까요." required></textarea>
+            <div class="form-footer">
+              <span id="charCount">0 / 10,000</span>
+              <button class="primary-button" type="submit">글 올리기 <span aria-hidden="true">↗</span></button>
+            </div>
+            <p id="postMessage" class="form-message" role="status"></p>
+          </form>
+        </section>
+
+        <section class="feed-section">
+          <div class="feed-heading">
+            <div>
+              <p class="eyebrow">COMMUNITY STORIES</p>
+              <h2>모두의 이야기 <span id="postCount" class="count"></span></h2>
+            </div>
+            <span class="feed-sparkle" aria-hidden="true">✳</span>
+          </div>
+          <div id="postList" class="post-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="authDialog" class="auth-dialog">
+      <button id="closeDialog" class="close-button" type="button" aria-label="닫기">×</button>
+      <p class="eyebrow">WELCOME TO THE LOUNGE</p>
+      <h2 id="authTitle">로그인</h2>
+      <p id="authDescription" class="dialog-copy">다시 만나 반가워요. 이야기를 이어가 볼까요?</p>
+      <form id="authForm">
+        <div id="nameField" class="field hidden">
+          <label for="authName">이름</label>
+          <input id="authName" name="name" maxlength="30" autocomplete="name">
+        </div>
+        <label for="authEmail">이메일</label>
+        <input id="authEmail" name="email" type="email" maxlength="254" autocomplete="email" required>
+        <label for="authPassword">비밀번호</label>
+        <input id="authPassword" name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required>
+        <p id="authMessage" class="form-message" role="status"></p>
+        <button id="authSubmit" class="primary-button full-button" type="submit">로그인</button>
+      </form>
+      <p class="switch-auth"><span id="switchPrompt">아직 계정이 없나요?</span> <button id="switchAuth" class="text-button" type="button">회원가입</button></p>
+    </dialog>
+
+    <footer>조금씩, 나답게. <span>© 문장의 온도</span></footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
